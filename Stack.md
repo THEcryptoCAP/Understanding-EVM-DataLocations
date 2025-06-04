@@ -2,6 +2,15 @@ The stack is used to hold small local variables. It is almost free to use (use a
 The stack is where most of the local variables created inside a function reside. It is an essential part of the EVM.
 At the low level, the EVM opcodes that can be used to operate on the stack are the PUSH, POP, SWAP and DUP instructions. Most of the other EVM opcodes consume it from the stack (by taking them out of the stack) and push the result back on the stack.
 
+THERE ARE 5 MAIN RULES TO REMEMBER ABOUT STACK DATA LOCATIONS IN SOLIDITY:
+1.Cheapest to use data location (among all others)
+2.The stack is only available in the function scope.
+
+There are three main rules about manipulating the “Stack” data location:
+3.The EVM uses four basic opcodes to manipulate the stack: PUSH, POP, SWAP and DUP.
+4.Other opcodes arguments always take the topmost items on the stack.
+5. The opcodes related to storage , memory and calldata load values from these data locations into the stack using the opcodes related to each data location.
+
 # Understanding the EVM Stack in Solidity
 
 The Ethereum Virtual Machine (EVM) uses a **stack-based architecture** where most operations are performed on a last-in-first-out (LIFO) data structure. This stack has a maximum depth of 1024 items and is fundamental to all smart contract execution.
